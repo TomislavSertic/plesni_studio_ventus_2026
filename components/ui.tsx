@@ -20,7 +20,8 @@ export function DanceCard({ dance, index = 0 }: { dance: Dance; index?: number }
   </Link>;
 }
 export function InstructorCard({ instructor }: { instructor: Instructor }) {
-  return <Link className="instructor-card" href={`/instructors/${instructor.slug.current}`} data-reveal><div className="instructor-image"><Image src={imageUrl(instructor.image, 900, `/images/${instructor.slug.current}.png`)} alt={`${instructor.name} ${instructor.surname || ''}`} fill sizes="(max-width: 700px) 90vw, 45vw" /><span className="image-arrow"><ArrowUpRight /></span></div><div className="instructor-info"><h3>{instructor.name} {instructor.surname}</h3><p>{instructor.description || 'Tvoj vodič kroz svijet plesa'}</p></div></Link>;
+  const src = imageUrl(instructor.image, 900, `/images/${instructor.slug.current}.png`);
+  return <Link className="instructor-card" href={`/instructors/${instructor.slug.current}`} data-reveal><div className="instructor-image"><Image className="instructor-backdrop" src={src} alt="" aria-hidden="true" fill sizes="(max-width: 700px) 90vw, 45vw" /><Image src={src} alt={`${instructor.name} ${instructor.surname || ''}`} fill sizes="(max-width: 700px) 90vw, 45vw" /><span className="image-arrow"><ArrowUpRight /></span></div><div className="instructor-info"><h3>{instructor.name} {instructor.surname}</h3><p>{instructor.description || 'Tvoj vodič kroz svijet plesa'}</p></div></Link>;
 }
 export function StoryCard({ story }: { story: Story }) {
   const event = story._type === 'event';
