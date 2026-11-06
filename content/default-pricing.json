@@ -1,0 +1,15 @@
+{
+  "title": "Cjenik studija", "enabled": true,
+  "eyebrow": "DOBAR OSJEĆAJ. JASNE CIJENE.", "heading": "ULOŽI U", "accent": "SVOJ RITAM.",
+  "description": "Cjenik grupnih i privatnih lekcija.\nOdaberi način koji ti odgovara.", "currency": "EUR",
+  "note": "Prijavom ostvaruješ prve dvije besplatne grupne lekcije. Dostupnost i detalje odabranog programa potvrđujemo pri dogovoru.",
+  "cards": [
+    { "_key": "groups", "_type": "priceCard", "enabled": true, "label": "GRUPNI TRENINZI", "title": "Tvoja ekipa.\nTvoj termin.", "amount": 50, "unit": "/ mjesečno po osobi", "description": "Djeca i odrasli · po jednoj grupi\nZagreb, Novi Vinodolski i Dramalj", "buttonText": "Isprobaj besplatno", "buttonAction": "registration" },
+    { "_key": "couples", "_type": "priceCard", "enabled": true, "label": "TEČAJ U PAROVIMA", "title": "Dva koraka.\nJedna priča.", "amount": 70, "unit": "/ mjesečno po paru", "description": "Početni tečaj u parovima\nZa zajednički ulazak u svijet plesa", "featured": true, "badge": "ZAJEDNO JE BOLJE", "buttonText": "Zaplešimo zajedno", "buttonAction": "registration" },
+    { "_key": "private", "_type": "priceCard", "enabled": true, "label": "PRIVATNE LEKCIJE", "title": "Samo ti.\nTvoj napredak.", "amount": 40, "unit": "/ sat", "packages": [
+      { "_key": "six", "_type": "pricePackage", "title": "6 + 1 sat gratis", "amount": 240 },
+      { "_key": "ten", "_type": "pricePackage", "title": "10 + 2 sata gratis", "amount": 400 },
+      { "_key": "twenty", "_type": "pricePackage", "title": "20 + 5 sati gratis", "amount": 800 }
+    ], "buttonText": "Dogovori svoju lekciju", "buttonAction": "contact" }
+  ]
+}

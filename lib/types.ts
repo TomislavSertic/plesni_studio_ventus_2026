@@ -1,0 +1,11 @@
+import type { PortableTextBlock } from '@portabletext/react';
+export type SanityImage = { asset?: { _ref?: string; url?: string }; hotspot?: { x: number; y: number } };
+export type Category = { _id: string; title: string; description?: string };
+export type Dance = { _id: string; name: string; slug: { current: string }; image?: SanityImage; body?: PortableTextBlock[]; teaching: boolean; highlighted?: boolean; teachingOptions?: string[]; categories?: Category[] };
+export type Instructor = { _id: string; name: string; surname?: string; slug: { current: string }; image?: SanityImage; show?: boolean; description?: string; bio?: PortableTextBlock[]; knowledge?: Dance[]; email?: string; phoneNumber?: string; socials?: { _key: string; socialName: string; url: string }[] };
+export type Story = { _id: string; _type: 'post' | 'event'; title: string; slug: { current: string }; description?: string; mainImage?: SanityImage; body?: PortableTextBlock[]; publishedAt?: string; eventStart?: string; eventEnd?: string; eventVenue?: string; eventVenueAddress?: string; eventPrice?: number; organizator?: Instructor; author?: { name: string }; categories?: Category[] };
+export type ScheduleClass = { _key: string; className?: string; class?: string; level?: string; slug?: string; location?: string; room?: string; instructorName?: string; capacity?: number; enabled?: boolean; timeStart: string; timeEnd: string; note?: string };
+export type Schedule = { _id: string; title: string; isMain?: boolean; days?: { _key: string; day: string; classes?: ScheduleClass[] }[] };
+export type PricePackage = { _key: string; title: string; amount?: number; priceText?: string };
+export type PriceCard = { _key: string; enabled?: boolean; label: string; title: string; amount?: number; priceText?: string; unit?: string; description?: string; featured?: boolean; badge?: string; packages?: PricePackage[]; buttonText?: string; buttonAction?: string };
+export type PricingSettings = { enabled?: boolean; title?: string; eyebrow?: string; heading?: string; accent?: string; description?: string; note?: string; currency?: string; cards?: PriceCard[] };
