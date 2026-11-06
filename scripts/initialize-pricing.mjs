@@ -1,0 +1,10 @@
+import { readFile } from 'node:fs/promises';
+import { createClient } from '@sanity/client';
+const token = process.env.SANITY_API_TOKEN || process.env.NEXT_PUBLIC_SANITY_TOKEN;
+if (!token) throw new Error('Missing Sanity server token');
+const client = createClient({ projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, dataset: process.env.NEXT_PUBLIC_SANITY_DATASET, apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-01-01', useCdn: false, token });
+const existing = await client.getDocument('ventus-pricing');
+if (existing && existing._type !== 'pricingSettings') throw new Error('The document ID is already used by another schema; nothing changed.');
+const defaults = JSON.parse(await readFile(new URL('../content/default-pricing.json', import.meta.url), 'utf8'));
+await client.createIfNotExists({ _id: 'ventus-pricing', _type: 'pricingSettings', ...defaults });
+console.log(existing ? 'Existing pricing settings preserved; no changes made.' : 'Pricing document initialized with existing prices. No schedules or messages changed.');
